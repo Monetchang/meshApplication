@@ -7,7 +7,7 @@
 //
 
 #import "RCTBLEMesh.h"
-#import "application-Swift.h"
+#import "meshApllication-Swift.h"
 
 
 @implementation RCTBLEMesh
