@@ -1,0 +1,3 @@
+rootProject.name = 'meshApllication'
+
+include ':app'
