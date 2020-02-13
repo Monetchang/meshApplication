@@ -1,0 +1,6 @@
+module Pods_meshApllication {
+  umbrella header "Pods-meshApllication-umbrella.h"
+
+  export *
+  module * { export * }
+}
