@@ -1,4 +1,4 @@
-package com.application;
+package com.meshapllication;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

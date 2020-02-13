@@ -22,8 +22,8 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-              new com.application.CustomReactPackage()
+          new MainReactPackage()
+//              new com.application.CustomReactPackage()
       );
     }
 
