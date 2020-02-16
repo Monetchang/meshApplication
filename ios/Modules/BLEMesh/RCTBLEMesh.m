@@ -7,14 +7,14 @@
 //
 
 #import "RCTBLEMesh.h"
-#import "meshApllication-Swift.h"
+#import <MeshSDK/MeshSDK.h>
 
 
 @implementation RCTBLEMesh
 {
   
 }
-
+  
 RCT_EXPORT_MODULE(BLEMesh);
 - (NSArray<NSString *> *)supportedEvents
 {
@@ -27,7 +27,7 @@ RCT_EXPORT_MODULE(BLEMesh);
            @"BLEMesh_onProvisionStep"
            ];
 }
-
+  
 // 加载应用页面
 // MARK: ⌘
 // MARK: setup()
@@ -35,7 +35,7 @@ RCT_EXPORT_METHOD(setup)
 {
   [[MeshSDK sharedInstance] setup];
 }
-
+  
 // 检查权限
 // MARK: ⌘
 // MARK: checkPermission(callback)
@@ -64,7 +64,7 @@ RCT_EXPORT_METHOD(getAllNetworkKey:(RCTResponseSenderBlock)callback)
 }
 
 RCT_EXPORT_METHOD(setCurrentNetworkKey: (NSString *)key) {
-  [[MeshSDK sharedInstance] setCurrentNetworkKey:key];
+  [[MeshSDK sharedInstance] setCurrentNetworkKeyWithKey:key];
 };
 
 RCT_EXPORT_METHOD(getCurrentNetworkKey:(RCTResponseSenderBlock)callback) {
@@ -112,8 +112,8 @@ RCT_EXPORT_METHOD(stopScan){
 // 蓝牙配网
 // MARK: Provision
 RCT_EXPORT_METHOD(provision: (NSString *)identifier networkKey: (NSString *)networkKey) {
-  [[MeshSDK sharedInstance] provisionWithIdentifier:identifier networkKey: networkKey callback:^(NSDictionary<NSString *,NSNumber *> * result) {
-    [self sendEventWithName:@"BLEMesh_onProvisionStep" body:result];
+  [[MeshSDK sharedInstance] provisionWithIdentifier: identifier networkKey: networkKey callback:^(NSDictionary<NSString *,NSNumber *> * result) {
+      [self sendEventWithName:@"BLEMesh_onProvisionStep" body:result];
   }];
 };
 
@@ -154,13 +154,13 @@ RCT_EXPORT_METHOD(setLightProperties: (NSString *)uuid c:(NSInteger *)c w:(NSInt
 };
 
 RCT_EXPORT_METHOD(sendMeshMessage: (NSString *)uuid element:(NSInteger *)element model:(NSInteger *)model opcode:(NSString *)opcode value:(NSString *)value callback: (RCTResponseSenderBlock)callback){
-  //  [[MeshSDK sharedInstance] sendMess];
+//  [[MeshSDK sharedInstance] sendMess];
 };
 
 // 重置
 // MARK: Reset Node
 RCT_EXPORT_METHOD(resetNode: (NSString *)uuid){
-  //  [[MeshSDK sharedInstance]reset]
+//  [[MeshSDK sharedInstance]reset]
 };
 
 // 网络的导入和导出
@@ -178,4 +178,3 @@ RCT_EXPORT_METHOD(importConfiguration: (NSString *)data callback: (RCTResponseSe
 };
 
 @end
-

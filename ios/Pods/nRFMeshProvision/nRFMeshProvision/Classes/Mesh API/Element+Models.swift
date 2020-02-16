@@ -92,14 +92,18 @@ public extension Element {
         return models.contains(model)
     }
     
-    /// Returns `true` if the Element contains a Model bound to the
-    /// given Application Key.
+    /// Returns `true` if the Element contains a Model compatible
+    /// with given one. Compatible Models make a pair of Client - Server.
     ///
+    /// For example, a compatible Model to Generic On/Off Server is
+    /// Generic On/Off Client, and vice versa.
+    ///
+    /// - parameter model:          The Model, which pair is required.
     /// - parameter applicationKey: The Application Key which the Model
     ///                             must be bound to.
     /// - returns: `True`, if the Element has the matching Model.
-    func contains(modelBoundTo applicationKey: ApplicationKey) -> Bool {
-        return models.contains { $0.bind.contains(applicationKey.index) }
+    func contains(modelCompatibleWith model: Model, boundTo applicationKey: ApplicationKey) -> Bool {
+        return models.contains { $0.isCompatible(to: model) && $0.bind.contains(applicationKey.index) }
     }
     
     /// Returns whether the Element contains any Models that are

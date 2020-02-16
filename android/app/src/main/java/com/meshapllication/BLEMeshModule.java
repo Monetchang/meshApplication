@@ -35,7 +35,7 @@ import qk.sdk.mesh.meshsdk.callback.IntCallback;
 import qk.sdk.mesh.meshsdk.callback.MapCallback;
 import qk.sdk.mesh.meshsdk.callback.StringCallback;
 
-public class BLEMeshModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
+public class BLEMeshModule extends ReactContextBaseJavaModule {
 
     // event name
     private String Event_onScanResult = "BLEMesh_onScanResult";
@@ -405,19 +405,19 @@ public class BLEMeshModule extends ReactContextBaseJavaModule implements Lifecyc
      * 监听 Activity 状态变化
      */
 
-    @Override
-    public void onHostResume() {
-        // Activity `onResume`
-    }
-
-    @Override
-    public void onHostPause() {
-        // Activity `onPause`
-    }
-
-    @Override
-    public void onHostDestroy() {
-        // Activity `onDestroy`
-    }
+//    @Override
+//    public void onHostResume() {
+//        // Activity `onResume`
+//    }
+//
+//    @Override
+//    public void onHostPause() {
+//        // Activity `onPause`
+//    }
+//
+//    @Override
+//    public void onHostDestroy() {
+//        // Activity `onDestroy`
+//    }
 
 }

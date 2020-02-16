@@ -7,7 +7,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-// import { BleManager } from 'react-native-ble-plx'
+import {BleManager} from 'react-native-ble-plx';
 import {
   SafeAreaView,
   StyleSheet,
@@ -22,7 +22,9 @@ import {
 
 import ApplicationManager from "./app/applicationManager"
 const applicationManager = new ApplicationManager()
-// const BLEManager = new BleManager()
+const BLEManager = new BleManager()
+// const BleManagerModule = NativeModules.BleManager;
+// const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 global.applicationManager = applicationManager
 
 // 蓝牙 mesh 模块
@@ -87,7 +89,7 @@ const App: () => React$Node = (props) => {
     setListUpdateTime(new Date().getTime())
   }
 
-  console.log(props)
+  console.log("init@@@@@")
 
   useEffect(() => {
     const Event_onScanResult = BLEMeshEventEmitter.addListener("BLEMesh_onScanResult", (result) => {
@@ -123,37 +125,6 @@ const App: () => React$Node = (props) => {
   });
 
   const listConfig = [
-    {
-      title: "面板分离",
-      data: [
-        {
-          title: "加载新面板",
-          onPress: () => {
-            let config = {
-              online: true,
-              host: "localhost",
-              port: "8088",
-              applicationName: "application",
-              moduleName: "application", // todo: 修改为 main，需修改对应的面板包
-              config: {
-                type: "progress",
-                iotId: "",
-                model: "",
-              },
-              package: {}
-            }
-
-            applicationManager.loadPageWithOptions(config)
-          }
-        },
-        {
-          title: "返回上一个面板",
-          onPress: () => {
-            applicationManager.back && applicationManager.back()
-          }
-        },
-      ]
-    },
     {
       title: "蓝牙 mesh",
       data: [
