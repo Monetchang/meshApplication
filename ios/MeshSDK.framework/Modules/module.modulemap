@@ -1,0 +1,11 @@
+framework module MeshSDK {
+  umbrella header "MeshSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module MeshSDK.Swift {
+    header "MeshSDK-Swift.h"
+    requires objc
+}
