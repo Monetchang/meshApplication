@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "hermes-engine": "^0.3.0",
+    "hermes-engine": "^0.10.0",
     "hermesvm": "^0.1.1",
     "react": "16.8.3",
     "react-native": "0.59.0",
